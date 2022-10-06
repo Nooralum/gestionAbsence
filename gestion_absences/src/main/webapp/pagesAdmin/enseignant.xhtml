@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+
+        
+  <ui:composition template="/templates/templateAdmin.xhtml">
+		<ui:define name="body">
+			<h:form id="formulaire">
+			<p:messages autoUpdate="true" closable="true" showDetail="false"></p:messages>
+			<p:panel header="Ajouter une filiere">
+	        <h:panelGrid columns="6" cellspacing="15">
+	
+                    
+             <h:outputLabel value="nom enseignant:" />
+             <p:inputText value="#{enseignantControllers.nomutilisateur}"></p:inputText>
+              
+              <h:outputLabel value="prenoms enseignant:" />
+             <p:inputText value="#{enseignantControllers.prenomsutilisateur}"></p:inputText>
+                    
+               <h:outputLabel value="telephone enseignant" />
+             <p:inputText value="#{enseignantControllers.telephoneutilisateur}"></p:inputText>
+                    
+               <h:outputLabel value="email enseignant" />
+             <p:inputText value="#{enseignantControllers.emailenseignant}"></p:inputText>
+                    
+               <h:outputLabel value="specialité enseignant" />
+             <p:inputText value="#{enseignantControllers.specialiteenseignant}"></p:inputText>
+                    
+         
+           </h:panelGrid>
+           <p:toolbar>
+	         <f:facet name="left">
+	             <p:commandButton  value="Ajouter" actionListener="#{enseignantControllers.enregistrer}" update="formulaire"></p:commandButton>
+	             </f:facet>
+	   </p:toolbar>
+	   </p:panel>
+	   
+	   <p:dataTable var="var" value="#{enseignantControllers.listEnseignant}"   selectionMode="single" selection="#{enseignantControllers.selectedEnseignant}" rowKey="#{var.idUtilisateur}">
+	  <f:facet name="header">Ajouter Filiere</f:facet>
+	  <p:ajax event="rowSelect" update="formulaire" listener="#{enseignantControllers.selectionerUneLigne}"></p:ajax>
+	     
+	     <p:column headerText="reference enseignant" >
+	     <h:outputText value="#{var.idUtilisateur}" />
+	     </p:column>
+	     <p:column headerText="nom enseignant" > 
+	     <h:outputText value="#{var.nomutilisateur}" />
+	     </p:column>
+	     
+	       <p:column headerText="prenoms enseignant" > 
+	     <h:outputText value="#{var.prenomsutilisateur}" />
+	     </p:column>
+	     
+	       <p:column headerText="telephone enseignant" > 
+	     <h:outputText value="#{var.telephoneutilisateur}" />
+	     </p:column>
+	     
+	       <p:column headerText="email enseignant" > 
+	     <h:outputText value="#{var.emailenseignant}" />
+	     </p:column>
+	     
+	       <p:column headerText="specialité enseignant" > 
+	     <h:outputText value="#{var.specialiteenseignant}" />
+	     </p:column>
+	   
+	   </p:dataTable>
+	   
+	   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+	   <p:commandButton value="Oui" type="button"
+	   styleClass="ui-confirmdialog-yes" icon="ui-icon-check" >
+	   </p:commandButton>
+	   <p:commandButton value="Non" type="button"
+	   styleClass="ui-confirmdialog-no" icon="ui-icon-close" >
+	   </p:commandButton>
+	   
+	   </p:confirmDialog>
+	   </h:form>
+	   
+	   </ui:define>
+	   
+	   </ui:composition>
+        
+</body> 
+</html>

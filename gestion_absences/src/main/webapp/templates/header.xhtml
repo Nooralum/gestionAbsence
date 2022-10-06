@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:body>
+<div style="background-color:#0c0480">
+
+<table > 
+<tr >
+	<td > 
+		<img src="../resource/images/upb.jpg" style="margin-right: 50px; margin-left: 25px" width="200" height="100"/>
+		<div style="margin-left: 10px">
+		<h:outputLabel value="#{initialController.annneScolaire.libelleAnneeScol}" style="color:white"></h:outputLabel>
+	</div>
+	</td>
+	<td style="width:80%"><h1 align="center" style="color:#ebc81c;" >Système de gestion des Absences des étudiants</h1></td> 
+	<td ><div class="account-details" >
+			<span class="account-name">&nbsp;</span> 
+			<span> <a href="#" style="color:#FFF">Profile</a> <a href="../logout.jsp" style="color: orange">Se déconnecter</a> </span>
+
+		</div>
+		<br />
+			<div>
+			<p:outputLabel value="Utilisateur: " style="color:white"></p:outputLabel>
+			<h:outputLabel value="#{initialController.user.nomUser} #{initialController.user.prenomsUser}" style="color:white"></h:outputLabel>
+			</div>
+		
+		</td> 
+	</tr>
+	</table>
+	
+	</div>
+
+</h:body>
+</html>

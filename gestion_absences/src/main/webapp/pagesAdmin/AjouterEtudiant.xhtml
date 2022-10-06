@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+	    <ui:composition template="/templates/templateAdmin.xhtml">
+		<ui:define name="body">
+			<h:form id="form">
+			<p:messages autoUpdate="true" closable="true" showDetail="false"></p:messages>
+			<p:panel header="Ajouter un etudiant">
+	        <h:panelGrid columns="4" cellspacing="15">
+		
+             <h:outputLabel value="matricule_etudiant" />
+             <p:inputText value="#{etudiantController.etudiant.matriculeetudiant}"></p:inputText>
+                    
+             <h:outputLabel value="nom" />
+             <p:inputText value="#{etudiantController.etudiant.nomutilisateur}"></p:inputText>
+                    
+             <h:outputLabel value="prenom" />
+              <p:inputText value="#{etudiantController.etudiant.prenomsutilisateur}"></p:inputText>
+                    
+             <h:outputLabel value="date de naissance" />
+             <p:inputText value="#{etudiantController.datedenaissance}"></p:inputText>
+                    
+             
+             <button type="submit" class="btn btn_default">Ajouter</button>
+           </h:panelGrid>
+           <p:toolbar>
+	         <f:facet name="left">
+	             <p:commandButton  value="Ajouter" actionListener="#{etudiantController.ajouter}" update="form"></p:commandButton>
+	             <p:commandButton value="Annuler" actionListener="#{etudiantController.annuler}" update="form"></p:commandButton> 
+	             <p:commandButton value="Supprimer" actionListener="#{etudiantController.supprimer}" update="form" ><p:confirm header="confirmation" message="confirmez-vous la suppression?"></p:confirm> </p:commandButton>  
+	         </f:facet>
+	   </p:toolbar>
+	   </p:panel>
+	   
+	   <p:dataTable var="variable" value="#{etudiantController.listTable}"   selectionMode="single" selection="#{etudiantController.selectedEtudiant}" rowKey="#{variable.idEtu}">
+	  <f:facet name="header">LISTES DES Etudiants</f:facet>
+	  <p:ajax event="rowSelect"  update="form" listener="#{etudiantController.selectionnerLigne}"></p:ajax>
+	     
+	     <p:column headerText="N°_Etudiant" style="width:10px">
+	     <h:outputText value="#{variable.idEtu}" />
+	     </p:column>
+	     <p:column headerText="Matricule_Etudiant" style="width:10px"> 
+	     <h:outputText value="#{variable.matricule}" />
+	     </p:column>
+	     <p:column headerText="Nom_Etudiant" style="width:10px">
+	     <h:outputText value="#{variable.nom}" />
+	     </p:column>
+	     <p:column headerText="Prenom_Etudiant" style="width:10px"> 
+	     <h:outputText value="#{variable.prenom}" />
+	     </p:column>
+	     <p:column headerText="date_naissance_Etudiant" style="width:10px"> 
+	     <h:outputText value="#{variable.date_de_naissance}" />
+	     </p:column>
+	    
+	   </p:dataTable>
+	   
+	   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+	   <p:commandButton value="Oui" type="button"
+	   styleClass="ui-confirmdialog-yes" icon="ui-icon-check" >
+	   </p:commandButton>
+	   <p:commandButton value="Non" type="button"
+	   styleClass="ui-confirmdialog-no" icon="ui-icon-close" >
+	   </p:commandButton>
+	   
+	   </p:confirmDialog>
+	   </h:form>
+	   
+	   </ui:define>
+	   
+	   </ui:composition>
+			
+		
+
+ 
+</html>

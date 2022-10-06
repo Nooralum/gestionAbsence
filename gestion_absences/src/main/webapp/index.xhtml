@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title>Gestion absences</title>
+</h:head>
+<h:body>
+		<div style="background-color:#0c0480">
+		
+		<table> 
+<tr>
+	<td> <img src="resource/images/upb.jpg" style="margin-right: 50px; margin-left: 25px" width="200" height="100"/></td>
+	<td><h1 align="center" style="color: #ebc81c;" >Gestion des absences des étudiants</h1></td> 
+	</tr>
+	</table>
+		   
+		</div>
+	
+	
+    <h:form id="frm" onsubmit="return initialize();">
+     <div style="position: absolute; width: 400px; height: 300px; top:0; bottom:0; left:0; right: 0; margin: auto;" align="center">
+     	<img src="resource/images/upb.jpg" style="margin:0px;" alt="lolo" align="center"  width="200" height="100"/>
+     <h:panelGrid columns="3" cellspacing="10" style="top:50px; position:relative;" align="center" >
+      <h:link style="color:blue; font-size: 30px"  value="Entrée administrateur"  outcome="/templates/templateAdmin.xhtml" />
+     </h:panelGrid>
+     </div>
+    
+  </h:form>
+</h:body>
+</html>

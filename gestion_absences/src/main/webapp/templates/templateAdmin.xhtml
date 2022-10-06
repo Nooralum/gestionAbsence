@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+ <link rel="stylesheet" type="text/css" href="../ressources/css/ngo.css"></link>
+<link rel="stylesheet" type="text/css" href="../ressources/css/monStyle.css"></link>
+<link rel="stylesheet" type="text/css" href="../resource/css/domi.css"></link>
+  <title><ui:insert name="title">Gestion des absences</ui:insert></title>
+</h:head>
+
+<h:body>
+<p:layout fullPage="true">
+<p:layoutUnit position="north">
+<div id="header">
+    <ui:insert name="header">
+    	<ui:include  src="/templates/header.xhtml"></ui:include>
+    </ui:insert>
+</div>
+</p:layoutUnit>
+
+<p:layoutUnit position="west" size="225" header="Menu" collapsible="true">
+
+	<h:form>
+		<p:panelMenu >
+			
+		
+		<p:submenu label="PARAMETRAGE">
+		    <p:menuitem value="Etudiant" outcome="/pagesAdmin/AjouterEtudiant.xhtml"/>
+			<p:menuitem value="Filiere" outcome="/pagesAdmin/AjouterFiliere.xhtml"/>
+			<p:menuitem value="Niveau" outcome="/pagesAdmin/AjouterNiveau.xhtml"/>
+			
+			
+			
+			
+		</p:submenu>
+			
+		<p:submenu label="REQUETES">
+			
+			
+				
+			
+		</p:submenu>
+		
+		</p:panelMenu>
+	</h:form>
+</p:layoutUnit>
+
+<p:layoutUnit position="center" >
+<div id="content" class="div_fond">
+  <ui:insert name="body" >
+    <h1>Bienvenue sur la page de gestion</h1>   
+	
+  </ui:insert>
+</div>
+</p:layoutUnit>
+
+<p:layoutUnit position="south">
+<div id="footer">
+  <ui:insert name="footer">
+		<ui:include src="/templates/footer.xhtml"></ui:include>
+  </ui:insert>
+</div>
+</p:layoutUnit>
+</p:layout>
+</h:body>
+
+</html>

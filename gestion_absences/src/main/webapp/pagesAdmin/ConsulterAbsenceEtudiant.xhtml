@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+      <ui:composition template="/templates/templateAdmin.xhtml">
+			
+			<ui:define name="body">
+			
+		<h:form id="form">
+       <p:messages autoUpdate="true" closable="true" showDetail="false"></p:messages>
+       	<p:panel header="listes des absences ">
+       	
+            
+	  <h:panelGrid columns="6" cellpadding="20" id="pg_1">
+	  
+			<h:outputLabel value="liste_Medecin :" >
+			<p:selectOneMenu value="#{consultationControllers.idMed}"  >
+			 <f:selectItem itemLabel="Selectionnez" itemValue=""/>
+			 <f:selectItems value="#{consultationControllers.listMedecin}" var="tata" itemLabel="#{tata.nom} #{tata.prenom}" itemValue="#{tata.idMed}"></f:selectItems>
+			</p:selectOneMenu>
+	       </h:outputLabel>
+	  </h:panelGrid>
+	  </p:panel>
+	  </h:form>
+	  </ui:define>
+	  </ui:composition>
+
+<h:head></h:head> 
+<body> 
+
+</body> 
+</html>

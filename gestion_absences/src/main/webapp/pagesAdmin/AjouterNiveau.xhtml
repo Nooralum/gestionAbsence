@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+      
+      <ui:composition template="/templates/templateAdmin.xhtml">
+		<ui:define name="body">
+			<h:form id="form">
+			<p:messages autoUpdate="true" closable="true" showDetail="false"></p:messages>
+			<p:panel header="Ajouter un niveau">
+	        <h:panelGrid columns="4" cellspacing="15">
+		
+             <h:outputLabel value="designation_niveaux" />
+             <p:inputText value="#{niveauxController.niveaux. designationNiveau}"></p:inputText>
+             
+                         
+             
+           </h:panelGrid>
+           <p:toolbar>
+	         <f:facet name="left">
+	             <p:commandButton  value="Ajouter" actionListener="#{niveauxController.ajouter}" update="form"></p:commandButton>
+	             <p:commandButton value="modifier" actionListener="#{niveauxController.modifier}" update="form"></p:commandButton> 
+	             <p:commandButton value="supprimer" actionListener="#{niveauxController.supprimer}" update="form" ><p:confirm header="confirmation" message="confirmez-vous la suppression?"></p:confirm> </p:commandButton>  
+	         </f:facet>
+	   </p:toolbar>
+	   </p:panel>
+	   
+	   <p:dataTable var="variable" value="#{niveauxController.listTable}"   selectionMode="single" selection="#{niveauxController.selectedNiveaux}" rowKey="#{variable.idNiveau}">
+	  <f:facet name="header">Liste des Niveaux</f:facet>
+	  <p:ajax event="rowSelect"  update="form" listener="#{niveauxController.selectionnerLigne}"></p:ajax>
+	     
+	     <p:column headerText="Id_Niveaux" style="width:10px">
+	     <h:outputText value="#{variable.idNiveau}" />
+	     </p:column>
+	     <p:column headerText="designation_Niveaux" style="width:10px"> 
+	     <h:outputText value="#{variable.designationNiveau}" />
+	     </p:column>
+	
+	    
+	   </p:dataTable>
+	   
+	   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+	   <p:commandButton value="Oui" type="button"
+	   styleClass="ui-confirmdialog-yes" icon="ui-icon-check" >
+	   </p:commandButton>
+	   <p:commandButton value="Non" type="button"
+	   styleClass="ui-confirmdialog-no" icon="ui-icon-close" >
+	   </p:commandButton>
+	   
+	   </p:confirmDialog>
+	   </h:form>
+	   
+	   </ui:define>
+	   
+	   </ui:composition>
+      
+      
+
+
+<body> 
+
+</body> 
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+
+
+         <ui:composition template="/templates/templateAdmin.xhtml">
+		<ui:define name="body">
+			<h:form id="formulaire">
+			<p:messages autoUpdate="true" closable="true" showDetail="false"></p:messages>
+			<p:panel header="Ajouter une filiere">
+	        <h:panelGrid columns="6" cellspacing="15">
+	
+                    
+             <h:outputLabel value="nom parent:" />
+             <p:inputText value="#{parentControllers.parent.nomparent}"></p:inputText>
+                    
+              <h:outputLabel value="prenoms parent" />
+             <p:inputText value="#{parentControllers.parent.prenomsparent}"></p:inputText>
+               
+              <h:outputLabel value="telephone parent:" />
+             <p:inputText value="#{parentControllers.parent.telephoneparent}"></p:inputText>
+               
+         
+           </h:panelGrid>
+           <p:toolbar>
+	         <f:facet name="left">
+	             <p:commandButton  value="Ajouter" actionListener="#{parentControllers.enregistrer}" update="formulaire"></p:commandButton>
+	         </f:facet>
+	   </p:toolbar>
+	   </p:panel>
+	   
+	   <p:dataTable var="var" value="#{parentControllers.listparent}"   selectionMode="single" selection="#{parentControllers.selectedParent}" rowKey="#{var.idParent}">
+	  <f:facet name="header">Ajouter Filiere</f:facet>
+	  <p:ajax event="rowSelect"  update="formulaire" listener="#{filiereController.selectionnerUneLigne}" ></p:ajax>
+	     
+	     <p:column headerText="reference parent" >
+	     <h:outputText value="#{var.idParent}" />
+	     </p:column>
+	     
+	     <p:column headerText="nom parent" > 
+	     <h:outputText value="#{var.nomparent}" />
+	     </p:column>
+	     
+	      <p:column headerText="nom parent" > 
+	     <h:outputText value="#{var.prenomsparent}" />
+	     </p:column>
+	     
+	      <p:column headerText="telephone parent" > 
+	     <h:outputText value="#{var.telephoneparent}" />
+	     </p:column>
+	   
+	   </p:dataTable>
+	   
+	   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+	   <p:commandButton value="Oui" type="button"
+	   styleClass="ui-confirmdialog-yes" icon="ui-icon-check" >
+	   </p:commandButton>
+	   <p:commandButton value="Non" type="button"
+	   styleClass="ui-confirmdialog-no" icon="ui-icon-close" >
+	   </p:commandButton>
+	   
+	   </p:confirmDialog>
+	   </h:form>
+	   
+	   </ui:define>
+	   
+	   </ui:composition>
+			
+</body> 
+</html>

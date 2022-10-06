@@ -1,0 +1,28 @@
+
+fieldset{
+  background-color:#CEF6EC;
+  padding:16px;
+  
+  border:1px solid green;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;	
+    border-radius:8px;
+}
+
+legend{
+	color:green;
+}
+
+panel{
+	color: blue;
+	
+}
+
+.div_fond
+{
+    margin: 0;
+    padding: 0;
+    background: url(resource/images/examen.jpg);
+    font-family: sans-serif;
+
+}
